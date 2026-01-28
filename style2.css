@@ -1,0 +1,1052 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+html, body {
+    margin: 0;
+    padding: 0; 
+    width: 100%;
+    overflow-x: hidden;
+    background-color: #ffffff;   
+    font-family: "Montserrat";
+}
+/* Phần header ============================================*/
+header{
+    display: flex;
+    background-color: #1931A7   ;
+    margin: 0px;
+    padding: 5px;
+    align-items: center;
+}
+#anhlogodoan{
+    display: flex;
+    width: 90px;
+    justify-content: center;
+    align-items: center;
+}
+.text-phuluc{
+    color: #1931A7;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+}
+.text-phuluc p{
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-bottom: 30px;
+}.text-phuluc h3{
+    font-size: 25px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+/* Logo (cả chữ) */
+#logo{
+    padding-left: 10px;
+    width: 110px;
+    padding-top: 5px;
+    margin-right: 50px;
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+/* Chữ dưới logo */
+
+#namelogo{
+    font-family: sans-serif;
+    color: white;
+    text-align: center;
+    margin-top: 5px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+#ntlg{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center; 
+}
+#nametag h1{
+    font-family: sans-serif;
+    color: white;
+    margin-top: 5px;
+    margin-bottom: 16px;
+}
+#nametag p{
+    font-family: sans-serif;
+    color: white;
+    margin-bottom: 0px;
+}
+#imglogo img{
+    width: 200px;
+    margin: 0px;
+}
+
+/* SEARCH BAR ===============================================================================*/
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin: 20px auto;
+  flex-wrap: wrap;
+  width: 90%;           
+  max-width: 1000px;     
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+.search-bar input,
+.search-bar select {
+  padding: 10px 14px;
+   border: 2px solid #1931A7; 
+  border-radius: 8px;
+  font-size: 1em;
+  outline: none;
+}
+.search-bar input {
+  flex: 1;
+  min-width: 220px;           
+}
+input:focus {
+  box-shadow: 0 0 10px #1931A7;
+}
+
+.custom-select {
+  position: relative;
+  width: 220px;
+  font-family: "Segoe UI", sans-serif;
+  user-select: none;
+}
+
+.custom-select .selected {
+  padding: 10px 14px;
+  border: 2px solid #1931A7;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.custom-select .selected::after {
+  content: "▼";
+  font-size: 12px;
+  color: #1931A7;
+  margin-left: 8px;
+  transition: transform 0.2s;
+}
+
+.custom-select.active .selected::after {
+  transform: rotate(180deg);
+}
+
+.custom-select .options {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  background: #fff;
+  margin-top: 4px;
+  z-index: 10;
+  box-shadow: 0 4px 10px #1931A7;
+  animation: slideDown 0.15s ease;
+  overflow: hidden;
+}
+
+.custom-select.active .options {
+  display: block;
+}
+
+.custom-select .options div {
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.custom-select .options div:hover {
+  background: #1931A7;
+  color: #fff;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* CARD ===============================================================================*/
+.card-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+/* 1. Sửa lại thẻ .card để chiều cao tự động co giãn theo nội dung */
+.card {
+    /* Các thuộc tính cũ giữ nguyên */
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 300px; /* Sẽ bị ghi đè bởi style inline trong HTML, không sao cả */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.852);
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 3px solid #1931A7;
+    
+    /* THÊM MỚI: Đảm bảo chiều cao tự động */
+    height: auto !important; 
+}
+.card::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 600px; 
+    height: 600px;
+    margin-left: -300px;
+    margin-top: -300px;
+    border-radius: 50%;
+    z-index: -2; 
+    background: #e0e0e0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.card:hover::before {
+    opacity: 1;
+    background: conic-gradient(transparent, transparent, transparent, #00b7ff, #ff30ff);
+    animation: rotate 4s linear infinite;
+}
+@keyframes rotate {
+    form{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+.card::after{
+    content: "";
+    position: absolute;
+    inset: 5px;
+    background: #ffffff;
+    border-radius: 10px;
+}
+.card-img{
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    z-index: 2;
+}
+.card-img img {
+  width: 100%;
+  height: auto; 
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  display: block;
+  z-index: 2;
+  border-radius: 10px 10px 0 0;
+}
+
+.card-text {
+    padding: 20px;
+    /* SỬA: Bỏ dòng padding-bottom: 0 cũ đi, thay bằng padding đầy đủ */
+    padding-bottom: 20px; 
+    
+    flex: 1; /* Đẩy nội dung chiếm hết khoảng trống */
+    display: flex;
+    flex-direction: column; /* Xếp dọc các phần tử bên trong */
+    z-index: 2;
+
+}.card-text h3 {
+    font-family: "Montserrat";
+    font-weight: 900;
+    margin: 0 0 15px 0; /* Tăng khoảng cách dưới tiêu đề một chút */
+    font-size: 18px;
+    color: #1931A7;
+    text-align: center;
+    
+    /* THÊM MỚI: Xử lý khi chữ quá dài sẽ tự xuống dòng đẹp hơn */
+    line-height: 1.4;
+    word-wrap: break-word; /* Ngắt từ nếu từ quá dài */
+    /* 1. Tạo chiều cao cố định đủ chứa khoảng 3 dòng chữ */
+    height: 75px; 
+    
+    /* 2. Dùng Flexbox ngay trong thẻ h3 để căn giữa chữ theo chiều dọc */
+    display: flex;
+    align-items: center;     /* Căn giữa dọc (chữ ngắn sẽ nằm giữa, không bị treo lơ lửng trên đầu) */
+    justify-content: center; /* Căn giữa ngang */
+    
+    /* 3. Xử lý nếu chữ quá dài thì hiện dấu ... (tùy chọn, nhưng nên có để an toàn) */
+    overflow: hidden; 
+    
+    margin: 0 0 15px 0; /* Khoảng cách với nút bấm bên dưới */
+
+    border-bottom: 2px solid #1931a730
+}
+.card-text p {
+    font-size: 14px;
+    font-family: "Montserrat";
+    font-weight: 700;
+    color: #1931A7;
+}
+
+.card-footer {
+  padding: 15px;
+  padding-top: 0;
+  z-index: 2;
+}
+
+.card-footer a {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    background: #2549ff;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: "Montserrat";
+    font-weight: 900;
+    box-sizing: border-box;
+    transition: background 0.3s ease; 
+}
+.card-footer a:hover {
+  background: #1931A7;
+  color: #fff;
+}
+.card-img, .card-text, .card-footer {
+    position: relative; 
+    z-index: 10;
+}
+
+.map-btn::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.4);
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transform: scale(0);
+  border-radius: inherit;
+  transition: transform 0.4s, opacity 0.8s;
+}
+.map-btn:active::after {
+  opacity: 1;
+  transform: scale(2); 
+  transition: 0s;   
+}
+/* --- CHỨC NĂNG XEM CHI TIẾT --- */
+
+/* Mặc định ẩn nội dung thẻ p */
+.card-text .card-desc {
+    display: none;
+    margin-top: 10px;
+    animation: fadeIn 0.3s ease-in-out; /* Hiệu ứng hiện ra từ từ */
+}
+
+/* Class này sẽ được JS thêm vào để hiện nội dung */
+.card-text .card-desc.show {
+    display: block;
+}
+
+/* Trang trí nút bấm */
+.btn-toggle {
+    background-color: #1931A7;
+    color: #ffffff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    
+    /* THÊM MỚI: Căn giữa và tạo khoảng cách */
+    display: table; /* Hoặc block */
+    margin: 0 auto; 
+    margin-bottom: 10px; /* Tạo khoảng cách với nội dung bên dưới (nếu có mở ra) */
+    margin-top: auto; /* Đẩy nút xuống nếu nội dung phía trên ngắn */
+}
+
+.btn-toggle:hover {
+    background-color: #ff0000; /* Đổi màu đỏ khi di chuột vào */
+    transform: scale(1.05);
+}
+
+/* Hiệu ứng mờ dần khi hiện chữ */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* Hover - sáng hơn + phóng to nhẹ */
+.map-btn:hover {
+  background: #3d19a8;
+  transform: scale(1.05);
+  box-shadow: 0 0 12px #2549ff;
+}
+/* Active - thu nhỏ + đậm hơn */
+.map-btn:active {
+  transform: scale(0.95);
+  background: #2549ff;
+}
+.in4Text{
+    display: block;
+    width: 100%;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+.textI4{
+    display: block;
+    width: 90%;
+    margin: 25px;
+    font-weight: 500;
+    text-align: justify;
+    color: rgb(63, 62, 62);
+}
+
+
+/* FOOTER =================================================================================================*/
+footer {
+    width: 100%;
+    display: flex;
+    margin-top: 50px;
+    background: #0f0f0fc1;
+    color: #fff;
+    text-align: center;
+    padding: 10px 10px;
+    font-size: 14px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0px 0 30px rgba(255, 255, 255, 0.507);
+}
+footer #tonglienlac{
+    width: 400px;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    padding-top: 20px;
+}
+footer .lienlac {
+  display: flex;    
+  gap: 8px;
+  margin: 5px;
+}
+footer p{
+    text-align: left;
+    margin: 10px;
+    margin-top: 0px;
+    margin-bottom: 15px;
+}
+footer .lienlac a {
+  display: flex;
+  align-items: center;
+  gap: 6px;              
+  text-decoration: none; 
+  color: #fff;           
+  font-weight: bold;
+  font-family: "Montserrat";
+}
+footer .lienlac img{
+    border-radius: 100%;
+}
+
+footer .lienlac a:hover {
+  color: #ffd700;        
+}
+
+#logofooter{
+    margin-top: 20px;
+    width: 100%;
+    padding-left: 10px;
+    padding-top: 5px;
+    margin-bottom: 0px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ffffff;
+}
+#textlogof{
+    display: flex;
+    font-family: "Montserrat";
+    align-items: center;
+}
+#textlogof h3{
+    font-size: 30px;
+    margin: 0px;
+    margin-left: 10px;
+}
+#logofooter p{
+    margin: 0px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    text-align: left;
+    font-family: "Montserrat";
+}
+#Thongtincoban{
+    display: block  ;
+}
+#in4{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    
+}
+#in4 img{
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
+    /* Tạo dải mờ từ trái sang phải và từ trên xuống dưới */
+    -webkit-mask-image: 
+        linear-gradient(to right, transparent, black 5%, black 95%, transparent),
+        linear-gradient(to bottom, transparent, black 5%, black 95%, transparent);
+    
+    /* Kết hợp 2 dải mờ trên */
+    -webkit-mask-composite: intersect; 
+
+    /* Thuộc tính chuẩn (lặp lại) */
+    mask-image: 
+        linear-gradient(to right, transparent, black 5%, black 95%, transparentt),
+        linear-gradient(to bottom, transparent, black 5%, black 95%, transparent);
+    mask-composite: intersect;
+}
+#ThongtinF{
+    width: 500px;
+    margin-left: 100px;
+    font-family: "Montserrat";
+    font-weight: 900;
+    text-align: left;
+
+}
+#ThongtinF h2{
+    margin-bottom: 10px;
+}
+#ThongtinF a {
+  display: flex;
+  align-items: center;
+  gap: 6px;              
+  text-decoration: none; 
+  color: #fff;           
+  font-weight: 500;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  font-family: "Montserrat";
+}
+#ThongtinF a:hover {
+  color: #ffd700;        
+}
+
+#last{
+    background-color: #000000;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    font-family: "Montserrat";
+    font-weight: 700;
+    padding: 20px;
+}
+
+#Tabar{
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    margin: 20px 0px;
+    margin-bottom: 50px;
+}
+#Tabar ul{
+    display: flex;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+#Tabar ul li{
+    list-style: none;
+}
+#Tabar ul li a{
+    text-decoration: none;
+    padding: 10px 20px;
+    font-family: "Montserrat";
+    font-weight: 700;
+    color: #1931A7;
+    transition: 0.3s;
+}
+#Tabar ul li a:hover {
+    color: #ff0000;
+}
+#VR{
+    width: 100%;
+    justify-content: center;
+    display: flex;
+}
+#VR iframe{
+    width: 80%;
+}
+/* VIDEO SECTION ============================================*/
+.video-section {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, #1932A8 0%, #ffffff 80%);
+  overflow: hidden;
+}
+
+.video-player-container {
+position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Tỷ lệ 16:9 (9 / 16 = 0.5625) */
+    height: 0;
+    overflow: hidden;
+    background-color: #000; /* Hiển thị màu đen khi video đang tải */
+    /* Tạo dải mờ ở trên và dưới */
+    -webkit-mask-image: 
+        linear-gradient(to bottom, transparent, black 5%, black 95%, transparent);
+    
+    /* Thuộc tính chuẩn (lặp lại) */
+    mask-image: 
+        linear-gradient(to bottom, transparent, black 5%, black 95%, transparent);
+}
+.video-player-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.02);
+    width: 100%;
+    height: 100%;
+    border: none; /* Bỏ viền mặc định của iframe */
+}
+
+.video-wrapper video {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+
+.video-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 25%;
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+  pointer-events: none;
+}
+
+#ThongtinF .audio-player-container {
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+/* Trình phát âm thanh */
+#ThongtinF .audio-player-container audio {
+  flex: 1;
+  margin-top: 5px;
+  min-width: 350px;
+  height: 40px; 
+  font-family: "Montserrat";
+}
+
+/* =================================================== */
+/* === (VIẾT LẠI) TOÀN BỘ CSS CHO ÂM NHẠC ĐỊA PHƯƠNG === */
+/* =================================================== */
+
+/* 0. HỦY BỎ NÚT BẤM CŨ (không dùng nữa) */
+#ThongtinF .song-title-trigger {
+    display: none;
+}
+
+/* 1. NÚT BẤM H2 VÀ MŨI TÊN */
+#ThongtinF .audio-toggle-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    user-select: none;
+    margin-bottom: 10px;
+}
+#ThongtinF .audio-toggle-btn h2 {
+    margin-bottom: 0px;
+}
+
+/* (CẬP NHẬT) Thay thế mũi tên '▼' bằng tam giác CSS */
+#ThongtinF .audio-toggle-btn .arrow-icon {
+    content: '';
+    width: 0; 
+    height: 0; 
+    
+    /* Vẽ hình tam giác */
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #fff; /* Đây là mũi tên trỏ xuống */
+  
+    
+    /* Hủy bỏ style text cũ */
+    font-size: 0;
+    line-height: 0;
+    
+    transform: translateY(12px);
+    transition: transform 0.2s ease;
+}
+
+/* Khi bấm (JS thêm class 'active') */
+#ThongtinF .audio-toggle-btn.active .arrow-icon {
+    /* Xoay 180 độ để trỏ lên */
+    transform: translateY(12px) rotate(180deg); 
+}
+
+/* Hiệu ứng hover (đổi màu cả H2 và mũi tên) */
+#ThongtinF .audio-toggle-btn:hover h2 {
+    color: #ffd700;
+}
+#ThongtinF .audio-toggle-btn:hover .arrow-icon {
+    border-top-color: #ffd700; /* Đổi màu mũi tên */
+}
+
+/* 2. KHUNG DANH SÁCH BÀI HÁT (bị ẩn) */
+#ThongtinF .song-list-container {
+    display: none; /* Ban đầu ẩn */
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 15px;
+    max-width: 350px;
+    box-sizing: border-box;
+}
+/* Từng bài hát trong danh sách */
+#ThongtinF .song-item {
+    font-family: "Montserrat";
+    font-weight: 500;
+    color: #fff;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+#ThongtinF .song-item:hover {
+    color: #000000; 
+    background: #ffd700;
+}
+
+
+/* 3. KHUNG PLAYER CHÍNH (MÀU XANH) */
+#ThongtinF .player-wrapper {
+    display: none; /* Ban đầu ẩn, JS sẽ đổi thành 'flex' */
+    flex-direction: column; /* Xếp 2 hàng (header và control) */
+    
+    background: #0f0f0f89; /* Nền xanh đậm */
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+    
+    padding: 10px;
+    margin-top: 5px;
+    min-width: 350px;
+    max-width: 80%; /* Thêm cho responsive */
+    box-sizing: border-box;
+}
+
+/* 3.1. Hàng 1 (Tên bài hát + Nút X) */
+#ThongtinF .player-header {
+    display: flex;
+    justify-content: space-between; /* Đẩy 2 item ra 2 bên */
+    align-items: center;
+    margin-bottom: 10px; /* Cách thanh control bên dưới */
+}
+
+/* 3.2. Tên bài hát (Hàng 1, bên trái) */
+#ThongtinF .current-player-title {
+    color: #ffffff; /* Màu vàng */
+    font-family: "Montserrat";
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0;
+    text-align: left;
+    
+    /* Chống tràn chữ */
+    flex: 1; /* Cho phép co giãn */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 10px; /* Cách nút X 1 chút */
+}
+/* Mặc định trên PC: Ẩn nút toggle */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #1931A7;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+/* 3.3. Nút X (Hàng 1, bên phải) */
+#ThongtinF .audio-close-btn {
+    color: #fff; /* Màu trắng */
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    
+    /* Reset/Hủy style cũ (nếu có) */
+    position: static;
+    background: none;
+    border: none;
+    border-radius: 0;
+    width: auto;
+    height: auto;
+    display: inline;
+}
+#ThongtinF .audio-close-btn:hover {
+    color: #ffd700;
+    transform: scale(1.1);
+    background: none; /* Đảm bảo không dính nền cũ */
+}
+
+.h22{
+    display: block;
+    justify-content: center;
+    text-align: center;
+}
+
+
+/* ===================================================
+   RESPONSIVE - Dành cho nhiều thiết bị (PHIÊN BẢN HOÀN CHỈNH)
+   =================================================== */
+@media (max-width: 1280px){
+    #anh img{width:800px;}
+    .h22 h2{
+    font-size: 20px;
+    }
+    #namelogo {
+        font-size: 9px; /* Chữ "XÃ ĐẦM HÀ" siêu nhỏ */
+    }
+    #in4 {
+        flex-direction: column; /* Xếp dọc */
+        align-items: flex-start;
+        text-align: left;
+    }
+    #in4 img {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        box-sizing: border-box;
+    }
+    #in4 img {
+        margin-top: 20px;
+        align-self: center;
+        max-width: 650px;
+    }
+    .card::before {
+        display: none !important; 
+        animation: none !important; 
+        content: none;            
+        background: none; 
+        width: 0 !important;
+        height: 0 !important;
+    
+    }
+    .card::after {
+        display: none !important;
+        content: none !important;
+    }
+    
+    .card:hover::before {
+        display: none !important;
+        opacity: 0 !important;
+    }
+}
+@media (max-width: 1024px){
+  #in4 img {
+        margin-top: 20px;
+        align-self: center;
+        max-width: 400px;
+    }
+    #ThongtinF h2{
+      font-size: 15px;
+    }
+}
+/* ========================================================================= */
+/* CODE FINAL - ĐÃ FIX LỖI CHO IPHONE 14 PRO MAX VÀ CÁC DÒNG MỚI */
+/* ========================================================================= */
+
+/* 1. MÁY TÍNH BẢNG (Dưới 820px) */
+@media (max-width: 820px) {
+    .h22 h2{
+    font-size: 14px;
+    }
+    header { padding: 10px; }
+    #logo { margin-right: 15px; padding-left: 5px; margin-bottom: 0; }
+    #logo img { width: 45px; }
+    #namelogo { font-size: 8px; text-align: center; }
+    
+    #ntlg { display: flex; flex-direction: row; align-items: center; width: 100%; justify-content: space-between; }
+    #nametag { flex: 1; }
+    #nametag p { font-size: 12px; margin-bottom: 4px; }
+    #nametag h1 { font-size: 18px; margin: 0; line-height: 1.2; }
+    #imglogo img { width: 100px; }
+    #anh img{width:500px;}
+    /* Fix Thanh tìm kiếm */
+    .search-bar {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important; /* Bắt buộc dãn ngang hết cỡ */
+        margin: 20px auto !important; /* Căn giữa */
+        width: 90% !important; /* Chiếm 90% màn hình */
+        max-width: 100% !important;
+        padding: 0 !important;
+    }
+    .search-bar input, .custom-select { width: 100% !important; box-sizing: border-box !important; }
+
+    footer, #in4 { flex-direction: column; align-items: flex-start; text-align: left; }
+    #in4 { flex-direction: column-reverse; }
+    #tonglienlac, #ThongtinF, #in4 img { width: 100%; max-width: 100%; margin-left: 0; }
+    #in4 img { margin-top: 20px; align-self: center; }
+    #Tabar {
+        flex-direction: column; /* Xếp dọc */
+        align-items: center;
+        position: relative;
+        background: white; /* Thêm nền nhẹ để tách biệt */
+        padding: 10px 0;
+    }
+
+    /* Hiện nút Menu */
+    .menu-toggle {
+        display: flex;
+        position: absolute;
+        right: 20px; /* Đặt nút góc phải */
+        top: 5px;
+    }
+
+    /* Thêm chữ "Danh mục" bên trái cho đẹp (tuỳ chọn) */
+    #Tabar::before {
+        content: "DANH MỤC";
+        font-family: "Montserrat";
+        font-weight: 800;
+        color: #1931A7;
+        position: absolute;
+        left: 20px;
+        top: 15px;
+        font-size: 16px;
+    }
+
+    /* Ẩn danh sách menu mặc định */
+    #Tabar .nav-list {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        margin-top: 20px; 
+        background-color: transparent; 
+        padding: 0 10px; 
+        box-sizing: border-box; 
+    }
+
+    /* Class này sẽ được JS thêm vào để hiện menu */
+    #Tabar .nav-list.active {
+        display: flex;
+        animation: slideDown 0.4s ease forwards;
+    }
+
+    #Tabar ul li {
+        margin: 5px 0; /* Tạo khoảng cách giữa các ô */
+        width: 100%;
+    }
+
+    #Tabar ul li a {
+        display: block;
+        width: 100%;
+        padding: 12px 0;
+        
+        /* Nền trắng, chữ xanh */
+        background-color: #ffffff; 
+        color: #1931A7 !important; 
+        
+        /* Xóa gạch chân nếu muốn, hoặc để mờ mờ */
+        border-bottom: none;
+    }
+    
+    #Tabar ul li a:hover {
+        background-color: #eee; /* Màu xám nhẹ khi lướt qua */
+    }
+    #Tabar ul li a.active {
+        background-color: #1931A7; /* Nền xanh */
+        color: #ffffff !important; /* Chữ trắng */
+        font-weight: bold; /* In đậm cho nổi */
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2); 
+    }
+    
+    /* Hiệu ứng xoay nút burger thành chữ X khi mở */
+    .menu-toggle.is-active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.is-active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .menu-toggle.is-active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+    /* Hiệu ứng trượt xuống */
+    @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+}
+
+/* 2. ĐIỆN THOẠI (Dưới 500px - Bao gồm cả iPhone 14 Pro Max 430px) */
+@media (max-width: 500px) {
+    header { padding: 8px; }
+    .h22 h2{
+    font-size: 10px;
+    }
+    #logo { margin-right: 5px; }
+    #nametag p { font-size: 9px; font-weight: 700; }
+    #nametag h1 { font-size: 14px; }
+    #imglogo img { width: 60px; } 
+
+    /* Fix Thanh tìm kiếm: Tăng độ rộng lên 95% cho điện thoại */
+    .search-bar {
+        margin: 15px auto !important;
+        width: 95% !important; 
+    }
+    #anh img{width: 350px;}
+    .card-container { padding: 10px; }
+    .card { width: 95%; max-width: 340px; margin: 0 auto 20px auto; }
+}
+
+/* 3. ĐIỆN THOẠI RẤT NHỎ (Dưới 380px - Iphone cũ, Samsung nhỏ) */
+@media (max-width: 380px) {
+    /* Thu nhỏ logo tối đa để không vỡ layout */
+    #logo { width: 40px; margin-right: 2px; }
+    #logo img { width: 35px; } 
+    #namelogo { display: none; }
+    #anh{width: 100px;}
+    #ntlg { gap: 2px; }
+    #nametag p { font-size: 8px; }
+    #nametag h1 { font-size: 11px; } 
+    #imglogo img { width: 45px; margin: 0; }
+}
