@@ -150,12 +150,11 @@ document.addEventListener("DOMContentLoaded", () => {
             desc.classList.toggle("show");
 
             // Đổi tên nút
+            const isEn = localStorage.getItem("cardLang") === "en";
             if (desc.classList.contains("show")) {
-            btn.textContent = "Thu gọn";
-            btn.style.backgroundColor = "#555"; // (Tuỳ chọn) Đổi màu nút khi đang mở
+                btn.textContent = isEn ? "Collapse" : "Thu gọn";
             } else {
-            btn.textContent = "Xem chi tiết";
-            btn.style.backgroundColor = ""; // Trả về màu CSS mặc định
+                btn.textContent = isEn ? "View Details" : "Xem chi tiết";
             }
         }
         });
@@ -172,4 +171,39 @@ document.addEventListener("DOMContentLoaded", () => {
           menuToggle.classList.toggle('is-active');
       });
   }
+
+  // === LOGIC CHUYỂN ĐỔI NGÔN NGỮ RIÊNG CHO CARD ===
+  const btnVi = document.getElementById("btn-vi");
+  const btnEn = document.getElementById("btn-en");
+
+  function changeCardLanguage(lang) {
+    const translateElements = document.querySelectorAll(".card-text .translate");
+    
+    translateElements.forEach(el => {
+        // Sử dụng innerHTML để nhận diện thẻ <br> trong data-attribute
+        const content = el.getAttribute(`data-${lang}`);
+        if (content) {
+            // Kiểm tra nếu là nút bấm và đang ở trạng thái 'Thu gọn'
+            if (el.classList.contains("btn-toggle") && el.nextElementSibling.classList.contains("show")) {
+                el.innerHTML = (lang === "vi") ? "Thu gọn" : "Collapse";
+            } else {
+                el.innerHTML = content;
+            }
+        }
+    });
+
+    // Cập nhật giao diện nút chọn ngôn ngữ
+    if(btnVi) btnVi.classList.toggle("active", lang === "vi");
+    if(btnEn) btnEn.classList.toggle("active", lang === "en");
+    
+    localStorage.setItem("cardLang", lang);
+  }
+
+  if(btnVi) btnVi.addEventListener("click", () => changeCardLanguage("vi"));
+  if(btnEn) btnEn.addEventListener("click", () => changeCardLanguage("en"));
+
+  // Khởi tạo ngôn ngữ đã lưu
+  changeCardLanguage(localStorage.getItem("cardLang") || "vi");
+
+
 });
