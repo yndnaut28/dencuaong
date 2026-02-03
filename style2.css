@@ -403,14 +403,11 @@ input:focus {
   background: #2549ff;
 }
 .in4Text{
-    display: flex;           /* Chuyển sang Flexbox để căn chỉnh dễ hơn */
-    flex-direction: column;  /* Xếp các phần tử theo chiều dọc */
-    align-items: center;     /* Căn giữa các khối con (H1, hình ảnh) theo chiều ngang */
-    justify-content: center; /* Căn giữa nội dung */
-    width: 100%;             /* Chiếm toàn bộ chiều rộng */
-    text-align: center;      /* Đảm bảo văn bản bên trong cũng được căn giữa */
-    padding: 0 10px;         /* Thêm khoảng đệm nhỏ để text không sát mép màn hình */
-    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
 }
 .textI4{
     display: block;
@@ -594,6 +591,38 @@ footer .lienlac a:hover {
 #VR iframe{
     width: 80%;
 }
+
+#language-switch {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+}
+
+.lang-btn {
+    background: none;
+    border: none;
+    color: #ccc;
+    cursor: pointer;
+    font-family: "Montserrat";
+    font-weight: 700;
+    font-size: 14px;
+    padding: 2px 5px;
+    transition: 0.3s;
+}
+
+.lang-btn.active {
+    color: #1931A7; /* Màu vàng khi được chọn */
+    border-bottom: 2px solid #1931A7;
+}
+
+.lang-btn:hover {
+    color: #ff0000;
+}
+
+
 /* VIDEO SECTION ============================================*/
 .video-section {
   position: relative;
@@ -1052,5 +1081,4 @@ position: relative;
     #nametag p { font-size: 8px; }
     #nametag h1 { font-size: 11px; } 
     #imglogo img { width: 45px; margin: 0; }
-
 }
