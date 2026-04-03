@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Công trình thanh niên số phường Cửa Ông</title>
+    <link rel="icon" type="image.png" href="https://cdn.haitrieu.com/wp-content/uploads/2021/11/Logo-Doan-Thanh-NIen-Cong-San-Ho-Chi-Minh-1.png">
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <header>
+        <div id = "logo">
+            <div id="anhlogodoan"><img src="/logo/logo đoàn.png" width="60px"></div>
+            <h3 id = "namelogo"> PHƯỜNG CỬA ÔNG</h1>
+        </div>
+        <div id = "ntlg">
+            <div id = "nametag">
+                <p>CÔNG TRÌNH THANH NIÊN PHƯỜNG CỬA ÔNG</p>
+                <h1>Di tích lịch sử Đền Cửa Ông</h1>
+            </div>
+            <div id ="imglogo">
+                <img src="/logo/Thanh niên.png" alt="doan">
+            </div>
+        </div>
+    </header>
+    <section class="video-section" style="position: relative;">
+        <div class="video-player-container" style="pointer-events: none;">
+            <div id="youtube-player"></div>
+        </div>
+        
+        <button id="custom-mute-btn" style="position: absolute; bottom: 15px; right: 15px; z-index: 10; width: 40px; height: 40px; border-radius: 50%; background: rgba(0,0,0,0.5); color: white; border: 1px solid rgba(255,255,255,0.5); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; transition: 0.3s;">
+            <span id="mute-icon">🔇</span>
+        </button>
+    </section>
+
+    <script>
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('youtube-player', {
+                videoId: 'FwQS4ue4OMM',
+                playerVars: {
+                    'autoplay': 1,
+                    'controls': 0, // Ẩn hoàn toàn thông tin
+                    'mute': 1,     // Bắt buộc tắt tiếng lúc đầu
+                    'loop': 1,
+                    'playlist': 'FwQS4ue4OMM',
+                    'rel': 0,
+                    'modestbranding': 1,
+                    'disablekb': 1
+                },
+                events: {
+                    'onReady': function(event) {
+                        event.target.playVideo();
+                    }
+                }
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const muteBtn = document.getElementById('custom-mute-btn');
+            const muteIcon = document.getElementById('mute-icon');
+
+            if(muteBtn) {
+                muteBtn.addEventListener('click', function() {
+                    if (player && typeof player.isMuted === 'function') {
+                        if (player.isMuted()) {
+                            player.unMute();
+                            muteIcon.innerHTML = "🔊";
+                            muteBtn.style.background = "rgba(25, 49, 167, 0.8)";
+                        } else {
+                            player.mute();
+                            muteIcon.innerHTML = "🔇";
+                            muteBtn.style.background = "rgba(0,0,0,0.5)";
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+
+    <div id ="Tabar">
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div> 
+        <ul class="nav-list">
+            <li><a href="index.html" style="border-bottom: 2px solid #1931A7" class="active">Trang chủ</a></li>
+            <li><a href="noiquy.html">Nội quy</a></li>
+            <li><a href="diadiem.html">Địa điểm tham quan</a></li>
+            <li><a href="lichsu.html">Lịch sử Đền Cửa Ông</a></li>
+        </ul>
+    </div>
+    <div id="language-switch">
+        <button id="btn-vi" class="lang-btn active">VI</button>
+        <span>|</span>
+        <button id="btn-en" class="lang-btn">EN</button>
+    </div>
+    <div class="col2">
+        <div class="in4Text" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+            <div id="anh">
+                <img src="img/Đền.jpg" alt="Đền Cửa Ông" style="border-radius: 50%;border: 5px solid #d89700">
+            </div>
+            <h1 class="translate" style="color: #1931A7; margin-top: 50px;" data-vi="Di tích Đền Cửa Ông" data-en="Cua Ong Historical Site">Di tích Đền Cửa Ông</h1>
+            
+            <div class="textI4 translate" 
+                 data-vi="Cửa Ông là vùng đất địa linh nhân kiệt. Từ xa xưa, nơi đây giữ vị trí đặc biệt quan trọng khi con đường bộ đi qua Cửa Ông là tuyến giao thông độc đạo nối vùng Đông Bắc với các khu vực lân cận. Cửa Ông được ví như “yết hầu” nối liền miền Đông chập chùng đồi núi với vùng mỏ giàu có và miền Tây rộng lớn của tỉnh." 
+                 data-en="Cua Ong is a land of spiritual significance and remarkable figures. Since ancient times, this place has held a particularly important position as the land route passing through Cua Ong was the main route connecting the Northeast region with neighboring areas. Cua Ong is often compared to a 'strategic gateway' linking the rugged mountains of the East with the rich mining districts and the vast Western region of the province.">
+                Cửa Ông là vùng đất địa linh nhân kiệt. Từ xa xưa, nơi đây giữ vị trí đặc biệt quan trọng...
+            </div>
+            
+            <div class="textI4 translate" 
+                 data-vi="Trong thời kỳ phong kiến, để kiểm soát tàu thuyền ngoại quốc qua lại trên tuyến đường thủy Đông Kênh, triều đình đã lập các trạm đội hải quan dọc bờ biển, gọi là Đồn Suất Ti Tuần. Cửa biển đặt đồn này được gọi là Cửa Suất, về sau đọc chệch thành Cửa Suốt. Trong cuộc kháng chiến chống quân Nguyên – Mông, Hưng Nhượng Vương Trần Quốc Tảng được giao trấn giữ cửa biển phía Đông, giữ vai trò then chốt trong bảo vệ vùng biên hải. Sau khi ông qua đời, Nhân dân lập đền thờ và tôn vinh ông là Đức Ông Đông Hải Đại Vương. Ngôi đền có tên chữ là Đông Hải Linh Từ. Từ đó, Cửa Suốt – nơi có đền thờ Đức Ông – được gọi là Cửa Ông, và ngôi đền thờ Đức Ông được Nhân dân gọi là Đền Cửa Ông là vì vậy." 
+                 data-en="During the feudal period, to control foreign vessels passing through the Dong Kenh waterway, the imperial court established customs outposts along the coast called customs outposts known as ‘Đồn Suất Ti Tuần. The estuary where this post was located was named Cua Suat, which later evolved into Cua Suot. During the resistance against the Mongol invaders, Hung Nhuong Vuong Tran Quoc Tang was assigned to guard this eastern coastal gateway, playing a pivotal role in protecting the coastal border. Following his death, local people built a temple in his honor and revered him as Duc Ong Dong Hai Dai Vuong (The Great Lord of the East Sea). The temple's formal name is Dong Hai Linh Tu. Since then, Cua Suot - home to the Lord's temple - became known as Cua Ong, which is why the temple is called Cua Ong Temple today.">
+                Trong thời kỳ phong kiến, để kiểm soát tàu thuyền ngoại quốc...
+            </div>
+            
+            <div class="textI4 translate" 
+                 data-vi="Di tích đền Cửa Ông nằm trên dãy núi Cẩm Sơn, trên một địa thế phong thủy đắc địa, mặt hướng hải, tả thanh long, hữu bạch hổ, phía sau tựa núi tạo thành thế vững chắc cho cả công trình. Toàn bộ di tích đền Cửa Ông gồm 3 khu vực thờ tự: Đền Hạ, đền Trung và đền Thượng. Ta có thể hình dung tổng thể toàn bộ di tích đền Cửa Ông như sau:" 
+                 data-en="The Cua Ong Temple relic is situated on the Cam Son mountain range, occupying a prime feng shui location: facing the sea, flanked by the 'Green Dragon' on the left and the 'White Tiger' on the right, with the mountains behind providing a solid foundation for the entire complex. The entire relic consists of three main worship areas: the Lower Temple (Den Ha), the Middle Temple (Den Trung), and the Upper Temple (Den Thuong).">
+                Di tích đền Cửa Ông nằm trên dãy núi Cẩm Sơn...
+            </div>
+            
+            <div class="textI4 translate" 
+                 data-vi="Từ quốc lộ 18A, phía bên trái là Công ty Kho vận và cảng Cẩm Phả, phía bên phải là Cảng than Cửa Ông và phân xưởng Vận tải thuộc Công ty Tuyển than Cửa Ông – TKV, ta đi qua một đường tàu vào một con đường trải nhựa bên tay trái là nhà bia ghi danh các anh hùng liệt sĩ phường Cửa Ông. Đi tiếp khoảng 300m ta đến đền Cửa Ông, đầu tiên là Nghi môn uy nghi được xây mới theo kiểu tứ trụ truyền thống rộng khoảng 12 m." 
+                 data-en="From Highway 18A, with the Cam Pha Port and Logistics Company on the left and the Cua Ong Coal Port on the right, you cross a railway line and enter a paved road. On the left is the stele house honoring the fallen heroes and martyrs of Cua Ong Ward. Continuing for about 300 meters, you arrive at Cua Ong Temple, starting with the majestic Nghi Mon (Main Gate), newly built in the traditional four-pillar style with a width of approximately 12 meters.">
+                Từ quốc lộ 18A, phía bên trái là Công ty Kho vận...
+            </div>
+            
+            <div class="textI4 translate" 
+                 data-vi="Đi qua Nghi môn vào trong một khoảng sân rộng được lát đá. Bên tay phải là khu vực nhà vệ sinh cho khách du lịch, bên tay trái là khu vực đền Hạ. Đi qua khoảng sân rộng lên cao lưng chừng là khu vực đền Trung, phía sau đền Trung trên vị trí cao nhất là đền Thượng. Hai bên đền Trung và đền Thượng là hai quả đồi cao tạo thế tả thanh long, hữu bạch hổ, trên các đỉnh đồi được trồng cây xanh, thảm cỏ trang trí." 
+                 data-en="Passing through the gate, you enter a large stone-paved courtyard. To the right are the restroom facilities for tourists, and to the left is the Lower Temple area. Moving across the courtyard and up the hillside, you reach the Middle Temple; situated behind and at the highest point is the Upper Temple. Flanking the Middle and Upper Temples are two high hills representing the Green Dragon and White Tiger positions, with their summits adorned with lush trees and decorative grass.">
+                Đi qua Nghi môn vào trong một khoảng sân rộng...
+            </div>
+            
+            <div class="textI4 translate" 
+                 data-vi="Trên đỉnh đồi bên phải là nơi đặt tượng Hưng Nhượng Vương Trần Quốc Tảng. Toàn bộ sân, bậc cấp và lan can lên xuống từ đền Hạ đến đền Trung và đền Thượng đều được làm bằng đá xanh, tạo sự thống nhất, hài hòa, bề thế cho cả khu vực di tích." 
+                 data-en="On the hilltop to the right stands the statue of Hung Nhuong Vuong Tran Quoc Tang. The entire courtyard, steps, and railings leading from the Lower Temple to the Middle and Upper Temples are crafted from blue stone, creating a sense of unity, harmony, and grandeur for the entire relic site.">
+                Trên đỉnh đồi bên phải là nơi đặt tượng...
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div>
+            <div id = "logofooter">
+                <div id = "textlogof">
+                    <img src="https://cdn.haitrieu.com/wp-content/uploads/2021/11/Logo-Doan-Thanh-NIen-Cong-San-Ho-Chi-Minh-1.png" width="30px">
+                    <h3> PHƯỜNG CỬA ÔNG</h1>
+                </div>
+                <p>Đoàn TNCS Hồ Chí Minh phường Cửa Ông</p>
+                <div id = "Thongtincoban">
+                    <div class="lienlac">
+                        <img src="/logo/mail.png" width="20">
+                        <strong style="font-family: Montserrat;">Gmail:</strong>xuanquynhcampha@gmail.com
+                    </div>
+                    <div class="lienlac">
+                        <img src="/logo/call.png" width="20">
+                        <strong style="font-family: Montserrat;">Hotline:</strong>096 333 89 97
+                    </div>
+                </div>
+            </div>
+
+            <div id = "tonglienlac">
+                <div class="lienlac">
+                    <a href="https://www.facebook.com/profile.php?id=61578079857682&locale=vi_VN" class="the" target="_blank">
+                        <img src="/logo/Tuổi trẻ Cửa Ông.jpg" width="20">
+                        Tuổi trẻ phường Cửa Ông
+                    </a>
+                </div>
+                <div class="lienlac">
+                    <a href="https://www.facebook.com/UBNDphuongCuaOng?locale=vi_VN" class="the" target="_blank">
+                        <img src="/logo/Phường Cửa Ông.jpg" width="20">
+                        Phường Cửa Ông, tỉnh Quảng Ninh
+                    </a>
+                </div>
+                <div class="lienlac">
+                    <a href="https://www.facebook.com/dencuaong58?locale=vi_VN" class="the" target="_blank">
+                        <img src="/logo/ĐỀN.jpg" width="20">
+                        Đền Cửa Ông
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id = "in4">
+            <div id = "ThongtinF">
+                <h2>Giới thiệu phường Cửa Ông</h2>
+                <a href="https://www.tinhthanhvn.com/province/quang-ninh/cua-ong">
+                    Thông tin chính phường Cửa Ông
+                </a>
+                <h2>Giới thiệu Đền Cửa Ông</h2>
+                <a><strong>Địa chỉ: </strong>Khu 9A, phường Cửa Ông</a>
+                <a href="https://dencuaong.vn/">
+                    <strong>Website Đền Cửa Ông</strong>
+                </a> 
+            </div>
+            <a href="https://www.facebook.com/dencuaong58?locale=vi_VN">
+                <img width="300" height="121" src="https://dencuaong.vn/wp-content/uploads/2025/08/fanpage-den-300x121.png" class="image wp-image-1474  attachment-medium size-medium wp-post-image" alt="" style="max-width: 85%; height: auto;" decoding="async" srcset="https://dencuaong.vn/wp-content/uploads/2025/08/fanpage-den-300x121.png 300w, https://dencuaong.vn/wp-content/uploads/2025/08/fanpage-den.png 346w" sizes="(max-width: 300px) 100vw, 300px">
+            </a>   
+        </div>
+        
+    </footer>
+    <div id = "last">Bản quyền © 2026 | Đoàn Thanh niên Cộng sản Hồ Chí Minh phường Cửa Ông</div>
+    <script src="script2.js"></script>
+    
+</body>
+</html>
