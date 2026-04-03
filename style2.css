@@ -402,20 +402,40 @@ input:focus {
   transform: scale(0.95);
   background: #2549ff;
 }
-.in4Text{
-    display: block;
-    width: 100%;
-    justify-content: center;
-    justify-items: center;
+.in4Text {
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    width: 100%;
+    padding: 0 20px; /* Cách đều mép màn hình trái phải 20px */
+    box-sizing: border-box; /* Lệnh quan trọng nhất để Safari không bị lòi khung */
+    overflow-x: hidden; /* Chặn tuyệt đối lỗi cuộn ngang */
 }
-.textI4{
-    display: block;
-    width: 90%;
-    margin: 25px;
+.in4Text h1, .in4Text h2 {
+    text-align: center;
+    width: 100%;
+    margin-top: 30px !important;
+    margin-bottom: 20px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+.textI4 {
+    width: 100%; /* Tự động bám theo mép của in4Text (cách mép 20px) */
+    margin: 0 0 20px 0; /* Chỉ cách dòng dưới 20px, bỏ cách hai bên để không bị lỗi Safari */
     font-weight: 500;
     text-align: justify;
     color: rgb(63, 62, 62);
+    line-height: 1.6; /* Giãn dòng một chút cho dễ đọc trên điện thoại */
+}
+#anh {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+#anh img {
+    max-width: 90%; /* Ảnh sẽ tự động thu nhỏ lại nếu màn hình điện thoại bé */
+    height: auto;
 }
 
 
